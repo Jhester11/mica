@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+
+    <link rel="stylesheet" href="style.css">
+
+
+    <script type="text/javascript">
+        alert("Welcome to Products Page");
+    </script>
+    <script src="https://kit.fontawesome.com/92d70a2fd8.js" crossorigin="anonymous">
+    </script>
+    <style>
+        body {
+            background: url('./img/bg.jpeg');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav style="width:100%;">
+        <div class="nav-main">
+            <div class="nav-header">
+                <img src="logo.jpg" alt="logo">
+                <i class="fa fa-bars" aria-hidden="true"></i>
+            </div>
+            <ul class="menu">
+                <li>
+                    <a href="indexmica.html">Home</a>
+                </li>
+                <li>
+                    <a href="productsmica.html">Products</a>
+
+                <li>
+                    <a href="contact.html">Contact</a>
+                </li>
+
+                <li>
+                    <a href="about.html">About Us</a>
+                </li>
+                <li>
+                    <a href="Logout.php">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="header">
+        <p class="logo">PRODUCTS</p>
+        <div class="cart"><i class="fa-solid fa-cart-shopping"></i>
+            <p id="count">0</p>
+        </div>
+    </div>
+    <div class="container">
+        <div id="root"></div>
+        <div class="sidebar">
+            <div class="head">
+                <p>My Cart</p>
+            </div>
+            <div id="cartItem">Your cart is empty</div>
+            <div class="foot">
+                <h3>Total</h3>
+                <h2 id="total">Php 0.00</h2>
+            </div>
+            <div>
+                <div id="paypal-button-container"></div>
+                <script
+                    src="https://www.paypal.com/sdk/js?client-id=AUqZoavF9PY4dK6q72RyZUloGQkhALLoTfp4mIGq_JoZNWej4nVES-AihevyntD2sG830K22AMuwvGcb">
+                </script>
+
+                <script>
+                    paypal.Buttons({
+                        createOrder: function (data, actions) {
+                            //This function sets up the details of the transaction, including the amount and line item details
+                            return actions.order.create({
+                                purchase_units: [{
+                                    amount: {
+                                        value: '299.99'
+                                    }
+                                }]
+                            });
+                        }
+                    }).render(
+                        '#paypal-button-container') //It is a sandbox so any transaction. So it no an actual charge
+
+                    // Then do an action once the payment is completed.
+                </script>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="indexmica.js"></script>
+
+</body>
+
+</html>
